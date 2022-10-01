@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3366FF;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.banner__icon{
+    height: 500px;
+    width: fit-content;
+    z-index: 1;
+}
+
+h2,
+.form__sign-in--title,
+.form__sign-in--desc,
+.forgot__password,
+.forgot__password--reset{
+    font-family: 'Poppins', sans-serif;
+}
+
+.input__form,
+.btn{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.riven__logo{
+    height: 80px;
+    margin-bottom: 45px;
+}
+
+.form__sign-in--title {
+    color: #121212;
+    font-size: 48px;
+    margin-bottom: 0;
+}
+
+.form__sign-in--title,
+h2 {
+    letter-spacing: 0.003em;
+}
+
+.form__sign-in--desc {
+    letter-spacing: 0.007em;
+    margin-bottom: 0;
+    margin-top: 12px;
+}
+
+form {
+    margin-top: 49px;
+}
+
+.form__sign-in {
+    padding: 83px;
+}
+
+.input__username,
+.input__email,
+.input__password {
+    margin-bottom: 15px;
+}
+
+.forgot__password--reset,
+.forgot__password{
+    letter-spacing: 0.005em;
+    color: #3366FF;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-align: right;
+    font-weight: 600;
+}
+
+.input__form{
+    color: #a0a3bd;
+}
+
+.input__form,
+.btn {
+    height: 64px;
+    border-radius: 16px;
+}
+
+.input__form,
+.btn__sign-in {
+    letter-spacing: 0.75px;
+}
+
+.btn__sign-in {
+    background-color: #3366FF;
+    font-weight: 700;
+    box-shadow: 0 15px 10px -10px rgb(109, 163, 244);
+}
+
+.form__sign-in--desc{
+    color: #aaaaaa;
+}
+
+.show__password {
+    position: absolute;
+    right: 6px;
+}
+
+.accept_terms button{
+    margin-top: -22px;
+}
+
+@media (max-width: 992px) {
+    .banner {
+      display: none !important;
+    }
+  
+    .form__sign-in .tickitz__logo {
+      margin-bottom: 40px;
+    }
+  }
+
+@media (max-width: 576px) {
+    .form__sign-in {
+      padding: 10%;
+    }
+  }
