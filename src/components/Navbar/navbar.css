@@ -31,13 +31,13 @@
     border-bottom: #3366FF !important;
 }
 
-.btn__sign-in{
+.btn__signin{
     font-family: 'Poppins', sans-serif;
     margin-right: 20px;
     font-weight: 600;
 }
 
-.btn__sign-up {
+.btn__signup {
     width: 130px;
     height: 40px;
     border-radius: 10px;

@@ -44,11 +44,11 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-            <a className="btn btn__sign-in" href="./signIn.html" role="button">
+            <a className="btn btn__signin" href="./signIn.html" role="button">
               Log In
             </a>
             <a
-              className="btn btn-primary btn__sign-up"
+              className="btn btn-primary btn__signup"
               href="./signUp.html"
               role="button"
             >
