@@ -1,9 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import "./landingPage.css";
 import submitArrow from "../../assets/img/submit_arrow.png";
+// import leftArrow from "../../assets/img/arrow__left.png";
+// import rightArrow from "../../assets/img/arrow_right.png";
+import eventTittle from "../../assets/img/event_tittle.svg";
+import axios from "../../utils/axios";
+import Card from "../../components/Card";
+import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 export default function LandingPage() {
+  document.title = "Riven | Home";
+  const navigate = useNavigate();
+  const limit = 6;
+  // const page = 1;
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const [pageInfo, setPageInfo] = useState({});
+  const [keyword, setKeyword] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [date, setDate] = useState("");
+  // // eslint-disable-next-line no-console
+  // console.log(localStorage.getItem(data));
+
+  useEffect(() => {
+    getDataEvent();
+  }, []);
+
+  useEffect(() => {
+    getDataEvent();
+  }, [page, searchName, date]);
+
+  const getDataEvent = async () => {
+    try {
+      const resultEvent = await axios.get(
+        `api/event?page=${page}&limit=${limit}&searchName=${searchName}&searchDateShow=${date}`
+      );
+      setData(resultEvent.data.data);
+      setPageInfo(resultEvent.data.pagination);
+      // eslint-disable-next-line no-console
+      // console.log(resultEvent.data.data);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error.response);
+    }
+  };
+
+  const handlePagination = (data) => {
+    // eslint-disable-next-line no-console
+    console.log(data.selected + 1);
+    setPage(data.selected + 1);
+  };
+
+  const handleDetailEvent = (id) => {
+    navigate(`/detail/${id}`);
+    // eslint-disable-next-line no-console
+    console.log(id);
+  };
+
+  const handleSearchName = () => {
+    // console.log(keyword);
+    setSearchName(keyword);
+  };
+
+  const handleDate = (event) => {
+    setDate(event.target.value);
+  };
+
   return (
     <>
       <Navbar />
@@ -34,6 +99,7 @@ export default function LandingPage() {
               type="text"
               className="hero__input"
               placeholder="Search Event..."
+              onChange={(e) => setKeyword(e.target.value)}
             />
             <span className="hero__mapicn">
               <svg
@@ -55,7 +121,11 @@ export default function LandingPage() {
               <option>option 3</option>
             </select>
             <span className="hero__submit">
-              <button className="btn btn-default reveal" type="button">
+              <button
+                className="btn btn-default reveal"
+                type="button"
+                onClick={handleSearchName}
+              >
                 <img src={submitArrow} alt="" />
               </button>
             </span>
@@ -75,7 +145,7 @@ export default function LandingPage() {
         <div className="d-flex flex-column align-items-center justify-content-between w-100">
           <span>
             <img
-              src="./assets/img/event_tittle.svg"
+              src={eventTittle}
               alt="event tittle"
               className="event__tittle"
             />
@@ -83,96 +153,59 @@ export default function LandingPage() {
           <h2>Events For You</h2>
         </div>
         <div className="event__date">
-          <button className="btn">
-            <img
-              src="./assets/img/arrow__left.png"
-              alt=""
-              className="arrow__left"
-            />
-          </button>
-          <button className="btn">
+          {/* <button className="btn">
+            <img src={leftArrow} alt="" className="arrow__left" />
+          </button> */}
+          <button className="btn" value={"2022,11,13"} onClick={handleDate}>
             13
             <br />
             Mon
           </button>
-          <button className="btn">
+          <button className="btn" value={"2022,11,14"} onClick={handleDate}>
             14
             <br />
             Tue
           </button>
-          <button className="btn">
+          <button className="btn" value={"2022,11,15"} onClick={handleDate}>
             15
             <br />
             Wed
           </button>
-          <button className="btn">
+          <button className="btn" value={"2022,11,16"} onClick={handleDate}>
             16
             <br />
             Thu
           </button>
-          <button className="btn">
+          <button className="btn" value={"2022,11,17"} onClick={handleDate}>
             17
             <br />
             Fri
           </button>
-          <button className="btn">
-            <img
-              src="./assets/img/arrow_right.png"
-              alt=""
-              className="arrow__right"
-            />
-          </button>
+          {/* <button className="btn">
+            <img src={rightArrow} alt="" className="arrow__right" />
+          </button> */}
         </div>
         <div className="d-flex overflow-auto gap-4 event__now__list">
           {/* <!-- Card 1 --> */}
-          <div
-            className="card border-0 align-items-center event__now__card"
-            onClick="location.href='./eventDetail.html'"
-          >
-            <img
-              src="./assets/img/sight&sounds.png"
-              className="card-img h-100 event__now__img"
-              alt="image event"
-            />
-            <div className="card-img-overlay now__card__overlay">
-              <p className="card-title text-white">Wed, 15 Nov, 4.00 PM</p>
-              <h5 className="card-text text-white">
-                Sight & Sounds Exhibition
-              </h5>
-              <img
-                src="./assets/img/avatarevent.png"
-                alt=""
-                style="width: 90px"
-              />
+          {data.map((item) => (
+            <div key={item.eventId}>
+              <Card data={item} handleDetail={handleDetailEvent} />
             </div>
-          </div>
-          {/* <!-- Card 2 --> */}
-          <div
-            className="card border-0 align-items-center event__now__card"
-            onClick="location.href='./eventDetail.html'"
-          >
-            <img
-              src="./assets/img/gold_class.png"
-              className="card-img h-100 event__now__img"
-              alt="image event"
-            />
-            <div className="card-img-overlay now__card__overlay">
-              <p className="card-title text-white">Thu, 16 Nov, 7:00 PM</p>
-              <h5 className="card-text text-white">See it in Gold Class</h5>
-              <img
-                src="./assets/img/avatarevent.png"
-                alt=""
-                style="width: 90px"
-              />
-            </div>
-          </div>
+          ))}
         </div>
-        <div className="text-center">
-          <button className="btn btn-outline-primary see__all__btn">
-            See All
-          </button>
-        </div>
+        <ReactPaginate
+          previousLabel={"← Previous"}
+          nextLabel={"Next →"}
+          pageCount={pageInfo.totalPage}
+          onPageChange={handlePagination}
+          containerClassName={"pagination"}
+          previousLinkClassName={"pagination__link"}
+          nextLinkClassName={"pagination__link"}
+          disabledClassName={"pagination__link--disabled"}
+          activeClassName={"pagination__link--active"}
+        />
       </section>
+      <Footer />
     </>
   );
 }

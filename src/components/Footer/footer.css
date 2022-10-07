@@ -1,0 +1,116 @@
+footer{
+    margin: 60px 0px 60px 250px;
+}
+
+.footer h5 {
+    margin-bottom: 30.54px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.footer h5,
+.riven__link,
+.features__link,
+.company__link,
+.copyright {
+  letter-spacing: 0.5px;
+}
+
+.footer__left img {
+    width: 183px;
+    margin-bottom: 16px;
+}
+
+.footer__left p{
+  font-size: 16px;
+}
+
+.footer__left p {
+    line-height: 32px;
+    color: #6e7191;
+    letter-spacing: 0.75px;
+}
+
+.riven__link a,
+.features__link a,
+.company__link a{
+    font-size: 14px;
+    margin-bottom: 14.7px;
+    color: #C1C5D0;
+}
+
+.copyright {
+    margin: 30px 0 30px -30px;
+    color: #5A7184;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .hero .hero__right {
+        margin-top: 64px;
+    }
+
+    .riven__link a,
+    .features__link a,
+    .company__link a{
+        margin-bottom: 0;
+        margin-right: 40px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero{
+        display: list-item;
+        background-image: none;
+        height: auto;
+    }
+
+    .hero__left{
+        margin: auto;
+    }
+
+    .hero__left span {
+      font-size: 48px;
+    }
+
+    .hero__searchicn{
+        position: absolute;
+        margin: 8px 0px 0px 12px
+    }
+    
+    .hero__mapicn{
+        position: absolute;
+        margin: 8px 0px 0px 8px
+    }
+
+    .hero__input{
+        width: 200px;
+        height: 40px;
+        padding-left: 35px;
+        border-radius: 15px px 0px 15px;
+        margin-left: 7px;
+    }
+
+    .hero__select{
+        width: 140px;
+        height: 40px;
+        padding-left: 35px;
+        border-radius: 2.5px 15px 15px 2.5px
+    }
+
+    .hero__submit img{
+        position: absolute;
+        width: 40px;
+        margin: -7px 0 0 -59px;
+    }
+
+    .event__date button{
+        padding: 5px;
+    }
+
+    footer{
+        margin: 60px 0px 60px 60px;
+    }
+
+}

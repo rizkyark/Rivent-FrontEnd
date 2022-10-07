@@ -1,0 +1,82 @@
+.main__detail__event{
+    padding: 30px 202px !important;
+}
+
+.detail__event{
+    display: flex;
+}
+
+.detail__event__image{
+    width: 600px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 10px rgba(51, 102, 255, 0.15);
+}
+
+.add__whistlist{
+    margin: 30px 0 0 40px;
+}
+
+.add__whistlist p{
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.detail__event__desc{
+    padding: 0px 100px;
+}
+
+.detail__event__desc h2{
+    font-weight: 600;
+}
+
+.event__locationandtime{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.event__location img,
+.event__time img{
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+}
+
+.event__location p,
+.event__time p{
+    font-weight: 500;
+}
+
+.event__time{
+    margin-left: 60px;
+}
+
+.event__attendees{
+   font-weight: 500; 
+}
+
+.event__attendees img{
+    width: 80px;
+}
+
+.detail__event__desc h5{
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.detail__event__desc p{
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(55, 58, 66, 0.75);
+}
+
+.event__map{
+    width: 300px;
+}
+
+.buy__button{
+    margin: 30px 0 30px 0;
+    padding: 10px 110px 10px 110px !important;
+    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+    border-radius: 15px;
+}

@@ -60,6 +60,114 @@
     margin: -16px 0 0 -60px;
 }
 
+.event__now span{
+    margin: auto;
+}
+
+.event__now h2{
+    margin: 30px 0 30px 0;
+    font-weight: 600;
+}
+
+.event__tittle{
+    width: 110px;
+}
+
+.event__date{
+    margin: auto;
+}
+
+.event__date button{
+    padding: 0 30px 30px 30px;
+    color: #C1C5D0;
+}
+
+.event__date button:focus{
+    color: #FF8900;
+    border: #FF8900;
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.arrow__left,
+.arrow__right{
+    width: 60px;
+}
+
+.event__now__list{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 30px 0 30px;
+}
+
+.event__now__card{
+    width: 230px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    display: inline-block;
+    
+}
+
+.event__now__img{
+    object-fit: cover;
+    border-radius: 30px;
+    
+}
+
+.now__card__overlay{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.event__now__list::-webkit-scrollbar {
+    display: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+    margin-top: 50px;
+    gap: 10px;
+  }
+  
+  .pagination a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3366FF;
+    color: #3366FF;
+  }
+  
+  .pagination__link {
+    font-weight: bold;
+  }
+  
+  .pagination__link--active a {
+    text-decoration: none !important;
+    color: #fff !important;
+    background: #3366FF;
+  }
+  
+  .pagination__link--disabled a {
+    text-decoration: none;
+    color: rgb(198, 197, 202);
+    border: 1px solid rgb(198, 197, 202);
+  }
+
+.see__all__btn{
+    margin: 30px;
+    padding: 7px 80px 7px 80px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .hero .hero__right {
         margin-top: 64px;

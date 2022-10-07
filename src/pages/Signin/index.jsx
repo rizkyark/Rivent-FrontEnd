@@ -34,6 +34,15 @@ export default function Signin() {
         `api/user/${resultLogin.data.msg.userId}`
       );
       localStorage.setItem("datauser", JSON.stringify(resultUser.data.data[0]));
+      localStorage.setItem(
+        "dataUser",
+        JSON.stringify({
+          id: resultUser.data.data[0].userId,
+          role: "admin",
+          username: resultUser.data.data[0].username,
+          imagePath: resultUser.data.data[0].imagePath,
+        })
+      );
       setIsError(false);
       setMessage(resultLogin.data.status);
       // navigate("/");

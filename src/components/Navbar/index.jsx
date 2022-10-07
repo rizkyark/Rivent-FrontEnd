@@ -1,16 +1,25 @@
 import React from "react";
 import "./navbar.css";
 import logo from "../../assets/img/riven_logo.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+  // eslint-disable-next-line no-console
+  // console.log(dataUser.username);
+
+  const handleLogout = () => {
+    localStorage.clear("dataUser");
+    window.location.reload(false);
+  };
   return (
     <>
       {/* <!-- Navbar --> */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid navbar__container">
-          <a className="navbar__logo" href="./home.html">
+          <Link className="navbar__logo" to={"/"}>
             <img src={logo} alt="riven" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -44,16 +53,64 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-            <a className="btn btn__signin" href="./signIn.html" role="button">
-              Log In
-            </a>
-            <a
-              className="btn btn-primary btn__signup"
-              href="./signUp.html"
-              role="button"
-            >
-              Sign Up
-            </a>
+            {!localStorage.getItem("datauser") ? (
+              <>
+                <Link className="btn btn__signin" to={"/signin"} role="button">
+                  Log In
+                </Link>
+                <Link
+                  className="btn btn-primary btn__signup"
+                  to={"/signup"}
+                  role="button"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <div className={"d-flex align-items-center"}>
+                <div className="dropdown ms-5">
+                  <button
+                    type="button"
+                    className="bg-transparent border-0"
+                    id="dropdownProfileMenu"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="0,20"
+                  >
+                    <img
+                      src={
+                        dataUser.imagePath
+                          ? dataUser.imagePath
+                          : `https://ui-avatars.com/api/?name=${dataUser.username}&background=random&size=44`
+                      }
+                      alt="profile"
+                      className="rounded-circle"
+                      style={{ width: "44px" }}
+                    />
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end rounded-3"
+                    aria-labelledby="dropdownProfileMenu"
+                  >
+                    <li>
+                      <Link className="dropdown-item" to="/signin">
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        className="dropdown-item"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <p className="navbar__username">{dataUser.username}</p>
+              </div>
+            )}
           </div>
         </div>
       </nav>
