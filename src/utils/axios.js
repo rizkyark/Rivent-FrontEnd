@@ -9,7 +9,7 @@ axiosApiInstance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
     config.headers = {
-      Authorization: `Bearer ${localStorage.getItem("token")}`
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     };
     return config;
   },

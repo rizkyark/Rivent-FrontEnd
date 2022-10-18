@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { getUserById } from "../../stores/action/user";
 import "./signin.css";
 import eye from "../../assets/img/eye.svg";
+import { login } from "../../stores/action/auth";
 
 export default function Signin() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  const [message, setMessage] = useState("");
-  const [isError, setIsError] = useState(false);
+  // const [message, setMessage] = useState("");
+  // const [isError, setIsError] = useState(false);
   // const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [showPwd, setShowPwd] = useState(false);
 
@@ -27,9 +31,17 @@ export default function Signin() {
     try {
       e.preventDefault();
 
+      await dispatch(login(form))
+        .then((res) => {
+          console.log(res.value.data.msg);
+          // navigate("/");
+          // location.reload();
+        })
+        .catch((err) => alert(err));
       const resultLogin = await axios.post("api/auth/login", form);
       localStorage.setItem("token", resultLogin.data.msg.token);
       localStorage.setItem("refreshToken", resultLogin.data.msg.refreshToken);
+      await dispatch(getUserById(resultLogin.data.msg.userId));
       const resultUser = await axios.get(
         `api/user/${resultLogin.data.msg.userId}`
       );
@@ -43,8 +55,8 @@ export default function Signin() {
           imagePath: resultUser.data.data[0].imagePath,
         })
       );
-      setIsError(false);
-      setMessage(resultLogin.data.status);
+      // setIsError(false);
+      // setMessage(resultLogin.data.status);
       // navigate("/");
       setTimeout(() => {
         navigate("/");
@@ -54,8 +66,8 @@ export default function Signin() {
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error.response);
-      setIsError(true);
-      setMessage(error.response.data.msg);
+      // setIsError(true);
+      // setMessage(error.response.data.msg);
     }
   };
 
@@ -77,7 +89,7 @@ export default function Signin() {
                 alt=""
                 className="riven__logo"
               />
-              {!message ? null : isError ? (
+              {/* {!message ? null : isError ? (
                 <div className="alert alert-danger py-2" role="alert">
                   {message}
                 </div>
@@ -85,7 +97,7 @@ export default function Signin() {
                 <div className="alert alert-success py-2" role="alert">
                   {message}
                 </div>
-              )}
+              )} */}
               <h1 className="form__sign-in--tittle">Sign In</h1>
               <p className="form__sign-in--desc">Hi, Welcome back to Riven!</p>
               <form onSubmit={handleSubmit}>

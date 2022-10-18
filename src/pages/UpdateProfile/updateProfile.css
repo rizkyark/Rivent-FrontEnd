@@ -1,0 +1,155 @@
+.profile__container{
+    margin: 0 50px 0px 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.edit__profile{
+    background-color: #ffff;
+    border-radius: 30px;
+}
+
+.btn__update__profile{
+    background-color: #3366FF;
+    font-weight: 700;
+    box-shadow: 0 15px 10px -10px rgb(109, 163, 244);
+    width: 300px !important;
+    height: 50px !important;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.profile__menu{
+    display: grid;
+}
+
+.side__pp{
+    margin-bottom: 20px;
+}
+
+.side__pp__desc p{
+    margin: 0 0 0 10px;
+}
+
+.profile__link,
+.manage__movie__link,
+.booking__link,
+.whistlist__link,
+.setting__link{
+    text-decoration: none;
+    color: #373A42;
+    font-weight: 600;
+    margin: 10px;
+}
+
+/* .profile__link,
+.manage__movie__link,
+.booking__link,
+.whistlist__link,
+.setting__link::after{
+    text-decoration: none;
+    color: blue;
+} */
+
+.logout__link{
+    text-decoration: none;
+    color: red;
+    margin: 10px;
+}
+
+.edit__profile h4{
+    margin: 30px;
+    font-weight: 600;
+}
+
+.edit__section{
+    margin: -60px 0 0 30px;
+}
+
+.form__label p{
+    padding-bottom: 30px;
+}
+
+.form__input{
+    margin-left: 20px;
+}
+
+.form__input input::placeholder{
+    color: #777777;
+}
+
+.name__input{
+    background-color: white;
+    color: #777777;
+    border: 1px solid #C1C5D0;
+    border-radius: 15px;
+    outline: none;
+    margin-bottom: 32px;
+}
+
+.username__input{
+    width: 90px;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 46px;
+}
+
+.email__input{
+    background-color: transparent;
+    border: none;
+    margin-bottom: 47px;
+}
+
+.edit__gender{
+    margin-bottom: 39px;
+}
+
+.edit__select{
+    color: #777777;
+    border-radius: 15px;
+}
+
+.edit__profession{
+    margin-bottom: 33px;
+}
+
+.edit__nationality{
+    margin-bottom: 34px;
+}
+
+.birthdate__input{
+    width: 130px;
+    color: #777777;
+    background-color: transparent;
+    border: none;
+}
+
+.edit__section__right{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit__section__right label{
+    margin: 30px 0 0 -55px;
+}
+
+.edit__section__right button{
+    width: 250px;
+    border-radius: 10px;
+}
+
+.update__image__label{
+    border: 1px solid #3366FF;
+    width: 280px;
+    color: #3366FF;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.update__image__label p{
+    font-weight: 500;
+    font-size: larger;
+    text-align: center;
+    padding-top: 15px;
+}

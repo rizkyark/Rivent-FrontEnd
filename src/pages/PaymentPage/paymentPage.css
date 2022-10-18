@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar__logo img{
+    height: 45px;
+    margin-left: 30px;
+}
+
+.navbar{
+    padding: 19px 0;
+    background-color: #ffffff !important;
+}
+
+.navbar-nav{
+    margin-left: 400px;
+}
+
+.nav-link{
+    color: #373A42 !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600
+}
+
+.nav-link:focus{
+    color:#3366FF !important;
+    border-bottom: #3366FF !important;
+}
+
+.btn__sign-in{
+    font-family: 'Poppins', sans-serif;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+.btn__sign-up {
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 30px;
+    box-shadow: 0px 8px 10px rgba(51, 102, 255, 0.15);
+}
+
+.profile{
+    display: flex;
+    margin-right: 20px;
+}
+
+.profile__name{
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.main__payment{
+    padding: 30px 202px !important;
+}
+
+.payment__section{
+    display: flex;
+}
+
+.payment__method h4{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.icon{
+    width: 60px;
+}
+
+.choose__payment h6{
+    margin: 20px 200px 20px 10px;
+}
+
+.choose__payment{
+    margin-bottom: 15px;
+}
+
+.card__payment{
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.arrow_retail{
+    margin-left: -7px;
+}
+
+.arrow__emoney{
+    margin-left: -39px;
+}
+
+.ticket__detail{
+    padding: 0px 120px;
+}
+
+.ticket__detail h4{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.detail__section__left{
+    font-weight: 500;
+    padding: 10px;
+}
+
+.detail__section__right{
+    color: #3366FF;
+    position: absolute;
+    right: 150px;
+    text-align: right;
+    padding: 10px;
+}
+
+.btn__payment{
+    margin-left: auto;
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+}
+
+footer{
+    margin: 60px 0px 60px 250px;
+}
+
+.footer h5 {
+    margin-bottom: 30.54px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.footer h5,
+.riven__link,
+.features__link,
+.company__link,
+.copyright {
+  letter-spacing: 0.5px;
+}
+
+.footer__left img {
+    width: 183px;
+    margin-bottom: 16px;
+}
+
+.footer__left p{
+  font-size: 16px;
+}
+
+.footer__left p {
+    line-height: 32px;
+    color: #6e7191;
+    letter-spacing: 0.75px;
+}
+
+.riven__link a,
+.features__link a,
+.company__link a{
+    font-size: 14px;
+    margin-bottom: 14.7px;
+    color: #C1C5D0;
+}
+
+.copyright {
+    margin: 30px 0 30px -30px;
+    color: #5A7184;
+    font-weight: 600;
+}

@@ -1,16 +1,30 @@
+/* eslint-disable no-console */
 import React from "react";
 import "./navbar.css";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../../assets/img/riven_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../stores/action/user";
 
 export default function Navbar() {
-  const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const dataUser = useSelector((state) => state.user.data);
+  const refreshToken = localStorage.getItem("refreshToken");
+  // const dataUser = JSON.parse(localStorage.getItem("dataUser"));
   // eslint-disable-next-line no-console
   // console.log(dataUser.username);
 
-  const handleLogout = () => {
-    localStorage.clear("dataUser");
-    window.location.reload(false);
+  const handleLogout = async () => {
+    try {
+      await dispatch(logout(refreshToken));
+      localStorage.clear();
+      navigate("/");
+      // window.location.reload(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -53,7 +67,7 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-            {!localStorage.getItem("datauser") ? (
+            {Object.keys(dataUser).length === 0 ? (
               <>
                 <Link className="btn btn__signin" to={"/signin"} role="button">
                   Log In
@@ -93,7 +107,7 @@ export default function Navbar() {
                     aria-labelledby="dropdownProfileMenu"
                   >
                     <li>
-                      <Link className="dropdown-item" to="/signin">
+                      <Link className="dropdown-item" to="/update-profile">
                         Profile
                       </Link>
                     </li>

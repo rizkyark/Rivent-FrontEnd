@@ -16,8 +16,9 @@ export default function DetailPage() {
   const dataOrder = {
     userId: dataUser.userId,
     eventId: params.id,
-    paymentMethod: "Ovo",
-    section: ["REG1-1", "REG1-2", "REG1-1", "VIP1-1", "VVIP1-1"],
+    eventName: data.name,
+    // paymentMethod: "Ovo",
+    // section: ["REG1-1", "REG1-2", "REG1-1", "VIP1-1", "VVIP1-1"],
   };
 
   useEffect(() => {
@@ -37,8 +38,8 @@ export default function DetailPage() {
   const handleBuyTicket = async (event) => {
     try {
       event.preventDefault();
-      const resultBooking = await axios.post("api/booking", dataOrder);
-      console.log(resultBooking);
+      // const resultBooking = await axios.post("api/booking", dataOrder);
+      // console.log(resultBooking);
       navigate("/order", { state: dataOrder });
       // navigate("/order", { state: dataOrder });
       // console.log(pushBook)
