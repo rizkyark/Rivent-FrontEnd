@@ -176,8 +176,14 @@ export default function App() {
     <>
       <Navbar />
       <div className="bg-grey">
-        <div className="container">
-          <div className="card">
+        <div
+          className="container"
+          style={{
+            paddingTop: "30px",
+            paddingBottom: "30px",
+          }}
+        >
+          <div className="card" style={{ borderRadius: "15px" }}>
             <div className="row m-5">
               <div className="col-sm-12 col-md-7 p-0 p-md-4">
                 <div className="rotate-seat">

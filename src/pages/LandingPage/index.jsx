@@ -15,7 +15,6 @@ export default function LandingPage() {
   document.title = "Riven | Home";
   const navigate = useNavigate();
   const limit = 6;
-  // const page = 1;
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [pageInfo, setPageInfo] = useState({});
@@ -49,8 +48,6 @@ export default function LandingPage() {
   };
 
   const handlePagination = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data.selected + 1);
     setPage(data.selected + 1);
   };
 

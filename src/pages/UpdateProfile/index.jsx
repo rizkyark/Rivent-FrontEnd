@@ -19,7 +19,7 @@ export default function UpdateProfile() {
   const [disableEmail, setDisableEmail] = useState(true);
   const [disableDate, setDisableDate] = useState(true);
   const [data, setData] = useState({
-    name: "",
+    name: dataUser.name,
     username: "",
     email: "",
     profession: "",
@@ -53,6 +53,7 @@ export default function UpdateProfile() {
     dispatch(updateImage(id, formData))
       .then((res) => {
         alert(res.value.data.msg);
+        getUser();
       })
       .catch((err) => alert(err));
   };
@@ -149,6 +150,7 @@ export default function UpdateProfile() {
                             className="form-control name__input"
                             name="name"
                             placeholder="Name"
+                            value={data.name}
                             onChange={handleChange}
                           />
                         </div>
