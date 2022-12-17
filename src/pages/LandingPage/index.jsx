@@ -35,7 +35,7 @@ export default function LandingPage() {
   const getDataEvent = async () => {
     try {
       const resultEvent = await axios.get(
-        `api/event?page=${page}&limit=${limit}&searchName=${searchName}&searchDateShow=${date}`
+        `api/event?page=${page}&limit=${limit}&searchName=${searchName}&searchDateShow=${date}&asc=`
       );
       setData(resultEvent.data.data);
       setPageInfo(resultEvent.data.pagination);

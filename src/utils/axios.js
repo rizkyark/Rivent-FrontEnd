@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const axiosApiInstance = axios.create({
-  baseURL: "http://localhost:3001/",
+  // baseURL: "http://localhost:3001/",
+  baseURL: "https://riven-backend.vercel.app/",
 });
 
 // Add a request interceptor
